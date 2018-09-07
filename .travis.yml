@@ -19,7 +19,7 @@ install:
   - wget http://drive5.com/uchime/uchime4.2.40_i86linux32 -O $HOME/miniconda/envs/xander/bin/uchime && chmod a+x $HOME/miniconda/envs/xander/bin/uchime
   - git clone https://github.com/rdpstaff/Xander_assembler.git
   - (cd Xander_assembler/gene_resource && wget https://zenodo.org/record/1410823/files/rpsC.tgz?download=1 -O rpsC.tgz && tar -xzf rpsC.tgz && rm rpsC.tgz)
-  - sed -i 's/BASEDIR/REF_DIR/g' Xander_assembler/bin/run_xander_skel.sh
+  - sed -i '/BASEDIR=/d; s/BASEDIR/REF_DIR\/bin/g' Xander_assembler/bin/run_xander_skel.sh
 
 script:
   - source activate xander
