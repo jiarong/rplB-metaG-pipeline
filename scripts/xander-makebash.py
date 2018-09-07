@@ -43,6 +43,7 @@ def main():
                 line = 'WORKDIR="{}"\n'.format(wkdir)
             if line.startswith('REF_DIR'):
                 line = 'REF_DIR="{}"\n'.format(REF_DIR)
+                line = line + 'BASEDIR="{}/bin"\n'.format(REF_DIR)
             if line.startswith('JAR_DIR'):
                 line = 'JAR_DIR="{}"\n'.format(JAR_DIR)
             if line.startswith('UCHIME'):

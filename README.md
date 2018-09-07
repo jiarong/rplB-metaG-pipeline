@@ -1,7 +1,7 @@
 # Snakemake workflow: rplB/rpsC-xander-assembly-analyses
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥4.8.0-brightgreen.svg)](https://snakemake.bitbucket.io)
-[![Build Status](https://travis-ci.org/snakemake-workflows/rna-seq-star-deseq2.svg?branch=master)](https://travis-ci.org/snakemake-workflows/rna-seq-star-deseq2)
+[![Build Status](https://travis-ci.org/jiarong/xander-assembly-pipeline.svg?branch=master)](https://travis-ci.org/jiarong/xander-assembly-pipeline)
 
 This workflow performs a gene targeted (xander) assembly of rplB on samples and generate OTU table and taxonomy table.
 

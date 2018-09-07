@@ -62,6 +62,7 @@ rule run_xander:
         alignedprot_list = expand('{project}/output/{{sample}}/k45/{gene}/cluster/{{sample}}_{gene}_45_final_prot_aligned.fasta', project = PROJECT, gene = GENES),
         covfile_list = expand('{project}/output/{{sample}}/k45/{gene}/cluster/{{sample}}_{gene}_45_coverage.txt', project = PROJECT, gene = GENES),
         taxonabunfile_list = expand('{project}/output/{{sample}}/k45/{gene}/cluster/{{sample}}_{gene}_45_taxonabund.txt', project = PROJECT, gene = GENES),
+    conda: srcdir('envs/py2.yaml')
     shell:
         """
         for gene in {GENES}; do rm -rf {PROJECT}/output/{wildcards.sample}/k45/${{gene}}; done

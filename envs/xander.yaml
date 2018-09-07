@@ -1,3 +1,4 @@
+name: xander
 channels:
 - bioconda
 - conda-forge
