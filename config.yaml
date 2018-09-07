@@ -1,4 +1,4 @@
-PROJECT: test
+PROJECT: test2
 METADATA: metadata.tsv
 GROUP: ID # column in METADATA file to pool samples
 PATH: PATH # column in METADATA file for rawdata path
