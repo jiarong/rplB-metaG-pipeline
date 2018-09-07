@@ -65,6 +65,12 @@ rule run_xander:
     conda: srcdir('envs/py2.yaml')
     shell:
         """
+        echo "****"
+        echo $PATH
+        echo "****"
+        echo "****"
+        echo "****"
+        python --version
         for gene in {GENES}; do rm -rf {PROJECT}/output/{wildcards.sample}/k45/${{gene}}; done
         bash {input}
         """

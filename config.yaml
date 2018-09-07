@@ -18,7 +18,7 @@ MAX_JVM_HEAP: '400M' #for test only
 #GENES="rplB rpsC amoA_AOA amoA_AOB nifH nirK nirS norB_cNor norB_qNor nosZ nosZ_a2"
 GENES: 'rplB'
 XANDER_DIR: 'Xander_assembler'
-JAR_DIR: '~/miniconda/envs/xander/share/rdptools-2.0.2-1'
+JAR_DIR: 'RDPTools'
 
 ### THIS SECTION MUST BE MODIFIED BASED ON THE INPUT DATASETS
 ### De Bruijn Graph Build Parameters
