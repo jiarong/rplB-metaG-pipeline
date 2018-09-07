@@ -17,7 +17,7 @@ install:
   - conda config --add channels bioconda
   - conda env create -q --file envs/xander.yaml -n xander
   - wget http://drive5.com/uchime/uchime4.2.40_i86linux32 -O $HOME/miniconda/envs/xander/bin/uchime && chmod a+x $HOME/miniconda/envs/xander/bin/uchime
-  - git clone https://github.com/rdpstaff/Xander_assembler.git && cd Xander_assembler/gene_resource && wget https://zenodo.org/record/1410823/files/rpsC.tgz?download=1 -O rpsC.tgz && tar -xzf rpsC.tgz && rm rpsC.tgz
+  - git clone https://github.com/rdpstaff/Xander_assembler.git && (cd Xander_assembler/gene_resource && wget https://zenodo.org/record/1410823/files/rpsC.tgz?download=1 -O rpsC.tgz && tar -xzf rpsC.tgz && rm rpsC.tgz)
 
 script:
   - source activate xander
