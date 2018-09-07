@@ -1,0 +1,25 @@
+language: python
+python:
+  # We don't actually use the Travis Python, but this keeps it organized.
+  - "3.6"
+
+install:
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  # Useful for debugging any issues with conda
+  - conda info -a
+  - conda config --add channels defaults
+  - conda config --add channels conda-forge
+  - conda config --add channels bioconda
+  - conda create -q -n xander --file envs/xander.yaml
+  - wget http://drive5.com/uchime/uchime4.2.40_i86linux32 -O $HOME/miniconda/envs/xander/bin/uchime && chmod a+x $HOME/miniconda/envs/xander/bin/uchime
+  - git clone https://github.com/rdpstaff/Xander_assembler.git && cd Xander_assembler/gene_resource && wget https://zenodo.org/record/1410823/files/rpsC.tgz?download=1 -O rpsC.tgz && tar -xzf rpsC.tgz && rm rpsC.tgz
+
+script:
+  - source activate xander
+  # run the workflow
+  - snakemake

@@ -1,0 +1,44 @@
+PROJECT: test
+METADATA: metadata.tsv
+GROUP: ID # column in METADATA file to pool samples
+PATH: PATH # column in METADATA file for rawdata path
+
+WORKDIR: .
+
+#--------------------------------
+# Parameters to change in xander
+#--------------------------------
+
+### memory for bloom filter [2**(FILTER_SIZE-2)] < HEAP < MAXMEM
+#FILTER_SIZE: 37 # memory = 2**(FILTER_SIZE-2), 38 = 64 GB, 37 = 32 GB, 36 = 16 GB
+#MAX_JVM_HEAP: '48G' # memory for java program, must be larger than the corresponding memory of the FILTER_SIZE
+FILTER_SIZE: 24 # for test only
+MAX_JVM_HEAP: '400M' #for test only
+
+#GENES="rplB rpsC amoA_AOA amoA_AOB nifH nirK nirS norB_cNor norB_qNor nosZ nosZ_a2"
+GENES: 'rplB'
+XANDER_DIR: 'Xander_assembler'
+JAR_DIR: '~/miniconda/envs/xander/share/rdptools-2.0.2-1'
+
+### THIS SECTION MUST BE MODIFIED BASED ON THE INPUT DATASETS
+### De Bruijn Graph Build Parameters
+K_SIZE: 45  # kmer size, should be multiple of 3 = 4 GB, increase FILTER_SIZE if the bloom filter predicted false positive rate i s greater than 1%
+MIN_COUNT: 2  # minimum kmer abundance in SEQFILE to be included in the final de Bruijn graph structure
+THREADS: 1 # threads for xander_findStarts
+
+
+
+### xander dependencies
+HMMALIGN: hmmalign # NO need to change if you follow tutorial on github
+UCHIME: uchime # dito
+
+#----------------------------
+# params for otu analyses
+#----------------------------
+DISTANCE: 0.05
+
+#------------------------------------------------
+# params to be set dynamically in Snakemake file
+#------------------------------------------------
+SAMPLES:
+REF_DIR:

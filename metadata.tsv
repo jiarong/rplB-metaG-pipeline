@@ -1,0 +1,10 @@
+ID	PLANT	PATH
+C1	C	test-data/C1.fa
+C2	C	test-data/C2.fa
+C3	C	test-data/C3.fa
+M1	M	test-data/M1.fa
+M2	M	test-data/M2.fa
+M3	M	test-data/M3.fa
+S1	S	test-data/S1.fa
+S2	S	test-data/S2.fa
+S3	S	test-data/S3.fa

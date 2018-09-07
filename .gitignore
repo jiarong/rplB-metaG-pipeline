@@ -1,0 +1,4 @@
+.dependency-checked
+.snakemake
+Xander_assembler
+test-data/COMMANDS
