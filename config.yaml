@@ -3,7 +3,7 @@ METADATA: metadata.tsv
 GROUP: ID # column in METADATA file to pool samples
 PATH: PATH # column in METADATA file for rawdata path
 
-WORKDIR: .
+WORKDIR:  # same directory as Snakefile if not specified
 
 #--------------------------------
 # Parameters to change in xander
@@ -17,8 +17,6 @@ MAX_JVM_HEAP: '400M' #for test only
 
 #GENES="rplB rpsC amoA_AOA amoA_AOB nifH nirK nirS norB_cNor norB_qNor nosZ nosZ_a2"
 GENES: 'rplB'
-XANDER_DIR: 'Xander_assembler'
-JAR_DIR: 'RDPTools'
 
 ### THIS SECTION MUST BE MODIFIED BASED ON THE INPUT DATASETS
 ### De Bruijn Graph Build Parameters
@@ -27,10 +25,11 @@ MIN_COUNT: 2  # minimum kmer abundance in SEQFILE to be included in the final de
 THREADS: 1 # threads for xander_findStarts
 
 
-
 ### xander dependencies
 HMMALIGN: hmmalign # NO need to change if you follow tutorial on github
 UCHIME: uchime # dito
+XANDER_DIR: Xander_assembler #dito
+JAR_DIR: RDPTools #dito
 
 #----------------------------
 # params for otu analyses
