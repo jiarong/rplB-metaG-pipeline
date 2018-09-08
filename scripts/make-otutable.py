@@ -68,7 +68,7 @@ def parse_mcclust(f, target_cutoff):
 
 def main():
     SAMPLES = snakemake.config['SAMPLES']
-    JAR_DIR = snakemake.config['JAR_DIR']
+    JAR_DIR = os.path.abspath(snakemake.config['JAR_DIR'])
     MAX_JVM_HEAP = snakemake.config['MAX_JVM_HEAP'] # memory for java program
 
     aligned_files = [os.path.abspath(f) for f in snakemake.input.alignedprot_list]
