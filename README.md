@@ -3,24 +3,37 @@
 [![Snakemake](https://img.shields.io/badge/snakemake-≥4.8.0-brightgreen.svg)](https://snakemake.bitbucket.io)
 [![Build Status](https://travis-ci.org/jiarong/xander-assembly-pipeline.svg?branch=master)](https://travis-ci.org/jiarong/xander-assembly-pipeline)
 
-This workflow performs a gene targeted (xander) assembly of rplB on samples and generate OTU table and taxonomy table.
+This workflow performs a gene targeted ([xander](https://github.com/rdpstaff/Xander_assembler)) assembly of protein coding genes (rplB and rpsC included here) on samples, and generate OTU table and taxonomy table for further microbial diversity analysis.
 
 ## Usage
 
-### Step 1: Install workflow
+### Step 1: Install workflow (skip if you have `conda` and `snakemake` ready)
 
-If you simply want to use this workflow, download and extract the [latest release](https://github.com/snakemake-workflows/rna-seq-spew/releases).
-If you intend to modify and further develop this workflow, fork this reposity. Please consider providing any generally applicable modifications via a pull request.
+This workflow uses conda as package installation tool and snakemake as workflow managment tool. Users just need to install conda and snakemake (via conda), and snakemake will install all dependecies as part of the workflow.
 
-In any case, if you use this workflow in a paper, don't forget to give credits to the authors by citing the URL of this repository and, once available, its DOI.
+Install conda:
+
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+    bash miniconda.sh -b -p $HOME/miniconda
+    export PATH="$HOME/miniconda/bin:$PATH"
+    hash -r
+    conda config --set always_yes yes
+    conda update -q conda
+    conda info -a
+    conda config --add channels defaults
+    conda config --add channels conda-forge
+    conda config --add channels bioconda
+
+Create an conda environment that has snakemake included (in env/xander.yaml):
+
+    conda env create -q --file envs/xander.yaml -n xander
+    source activate xander
 
 ### Step 2: Configure workflow
 
 Configure the workflow according to your needs via editing the file `config.yaml` and the sheets `metadata.tsv`.
 
 ### Step 3: Execute workflow
-
-All you need to execute this workflow is to install Snakemake via the [Conda package manager](http://snakemake.readthedocs.io/en/stable/getting_started/installation.html#installation-via-conda). Software needed by this workflow is automatically deployed into isolated environments by Snakemake.
 
 Test your configuration by performing a dry-run via
 
@@ -32,14 +45,5 @@ Execute the workflow locally via
 
 using `$N` cores. Alternatively, it can be run in cluster or cloud environments (see [the docs](http://snakemake.readthedocs.io/en/stable/executable.html) for details).
 
-If you not only want to fix the software stack but also the underlying OS, use
+After successful execution, you will see the OTU table at `PROJECT/output/otu/GENE/otutable.tsv`, and taxonomy table at `PROJECT/output/tax/GENE/taxonomy.tsv` (PRJECT and GENE are defined in `config.yaml`).
 
-    snakemake --use-conda --use-singularity
-
-in combination with any of the modes above.
-
-### Step 4: Investigate results
-
-After successful execution, you can create a self-contained report with all results via:
-
-    snakemake --report report.html

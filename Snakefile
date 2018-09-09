@@ -1,7 +1,7 @@
 import os
 import sys
 import pandas as pd
-from snakemake.utils import validate, min_version
+from snakemake.utils import min_version
 
 VERSION = '1.0.0'
 
