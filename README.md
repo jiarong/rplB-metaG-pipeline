@@ -31,6 +31,9 @@ Create an conda environment that has snakemake included (in env/xander.yaml):
 
 ### Step 2: Configure workflow
 
+    git clone https://github.com/jiarong/xander-assembly-pipeline
+    cd xander-assembly-pipelin
+
 Configure the workflow according to your needs via editing the file `config.yaml` and the sheets `metadata.tsv`.
 
 ### Step 3: Execute workflow
@@ -39,11 +42,11 @@ Test your configuration by performing a dry-run via
 
     snakemake --use-conda -n
 
-Execute the workflow locally via
+Execute the workflow locally using `$N` cores:
 
     snakemake --use-conda --cores $N
 
-using `$N` cores. Alternatively, it can be run in cluster or cloud environments (see [the docs](http://snakemake.readthedocs.io/en/stable/executable.html) for details).
+Alternatively, it can be run in cluster or cloud environments (see [the docs](http://snakemake.readthedocs.io/en/stable/executable.html) for details).
 
 After successful execution, you will see the OTU table at `PROJECT/output/otu/GENE/otutable.tsv`, and taxonomy table at `PROJECT/output/tax/GENE/taxonomy.tsv` (PRJECT and GENE are defined in `config.yaml`).
 
