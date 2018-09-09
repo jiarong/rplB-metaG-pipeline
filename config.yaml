@@ -9,8 +9,13 @@ WORKDIR:  # same directory as Snakefile if not specified
 # Parameters to change in xander
 #--------------------------------
 
+### detailed instructions can be found at https://github.com/rdpstaff/Xander_assembler
+
 ### memory for bloom filter [2**(FILTER_SIZE-2)] < HEAP < MAXMEM
-#FILTER_SIZE: 37 # memory = 2**(FILTER_SIZE-2), 38 = 64 GB, 37 = 32 GB, 36 = 16 GB
+### memory = 2**(FILTER_SIZE-2), 38 = 64 GB, 37 = 32 GB, 36 = 16 GB
+### based on experience, a bloom filter should be at least twice the size of you data in fasta
+
+#FILTER_SIZE: 37
 #MAX_JVM_HEAP: '48G' # memory for java program, must be larger than the corresponding memory of the FILTER_SIZE
 FILTER_SIZE: 24 # for test only
 MAX_JVM_HEAP: '400M' #for test only

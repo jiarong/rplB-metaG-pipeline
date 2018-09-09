@@ -5,3 +5,4 @@ test*
 !test-data/COMMANDS
 RDPTools
 RDPTools.tgz
+report*
