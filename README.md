@@ -1,7 +1,7 @@
 # Snakemake workflow: rplB/rpsC-xander-assembly-analyses
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥4.8.0-brightgreen.svg)](https://snakemake.bitbucket.io)
-[![Build Status](https://travis-ci.org/jiarong/xander-assembly-pipeline.svg?branch=master)](https://travis-ci.org/jiarong/xander-assembly-pipeline)
+[![Build Status](https://travis-ci.org/jiarong/rplB-metaG-pipeline.svg?branch=master)](https://travis-ci.org/jiarong/rplB-metaG-pipeline)
 
 This workflow performs a gene targeted ([xander](https://github.com/rdpstaff/Xander_assembler)) assembly of protein coding genes (rplB and rpsC included here) on samples, and generate OTU table and taxonomy table for further microbial diversity analysis.
 
@@ -31,8 +31,8 @@ Create an conda environment that has snakemake included (in env/xander.yaml):
 
 ### Step 2: Configure workflow
 
-    git clone https://github.com/jiarong/xander-assembly-pipeline
-    cd xander-assembly-pipelin
+    git clone git@github.com:jiarong/rplB-metaG-pipeline.git
+    cd rplB-metaG-pipeline
 
 Configure the workflow according to your needs via editing the file `config.yaml` and the sheets `metadata.tsv`.
 
