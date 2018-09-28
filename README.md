@@ -1,4 +1,4 @@
-# Snakemake workflow: rplB/rpsC-target-shortgun-metagenomic-analyses
+# Snakemake workflow: rplB/rpsC-target-shotgun-metagenomic-analyses
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥4.8.0-brightgreen.svg)](https://snakemake.bitbucket.io)
 [![Build Status](https://travis-ci.org/jiarong/rplB-metaG-pipeline.svg?branch=master)](https://travis-ci.org/jiarong/rplB-metaG-pipeline)
